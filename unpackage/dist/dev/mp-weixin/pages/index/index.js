@@ -153,6 +153,9 @@ exports.default = void 0;
 //
 //
 //
+//
+//
+//
 var _default = {
   name: "lx-screen-check",
   data: function data() {
@@ -161,7 +164,13 @@ var _default = {
       // 格子图
       cellWidth: 0,
       // 格子宽度
-      cellHeight: 0 // 格子高度
+      cellHeight: 0,
+      // 格子高度
+      count: 0,
+      flag: [],
+      xuanFu: false,
+      row: 0,
+      col: 0
     };
   },
   mounted: function mounted() {
@@ -170,20 +179,28 @@ var _default = {
   methods: {
     // 初始化格子图
     initGrid: function initGrid() {
-      var rowSize = 40; // 行数
+      // const rowSize = 22 // 行数
       var colSize = 12; // 列数
       var screenWidth = uni.getSystemInfoSync().windowWidth;
       var screenHeight = uni.getSystemInfoSync().windowHeight;
       this.cellWidth = screenWidth / colSize; // 格子宽度
-      this.cellHeight = this.cellWidth; // 格子高度
-      // screenWidth * colSize / screenHeight
+      this.cellHeight = this.cellWidth; // 格子高度\
+      // console.log(parseInt(screenWidth) /parseInt(colSize));
+      // console.log( parseInt(parseInt(screenHeight) / parseInt(this.cellHeight)) ) ;
+      // const colSize =  parseInt(screenHeight / this.cellHeight);
+      var rowSize = parseInt(screenHeight / this.cellHeight) + 1;
+      this.row = rowSize;
+      this.col = colSize;
       for (var i = 0; i < rowSize; i++) {
         var row = [];
+        var rowFlag = [];
         for (var j = 0; j < colSize; j++) {
           row.push({
             color: 'rgb(238,240,244)'
           });
+          rowFlag.push(0);
         }
+        this.flag.push(rowFlag);
         this.grid.push(row);
       }
     },
@@ -201,9 +218,23 @@ var _default = {
       var rowIndex = Math.floor(clientY / this.cellHeight);
       var colIndex = Math.floor(clientX / this.cellWidth);
       this.grid[rowIndex][colIndex].color = 'rgb(130,161,250)';
-
       // Update the navigation bar color
       this.updateNavigationBarColor(this.grid[rowIndex][colIndex].color);
+      if (this.flag[rowIndex][colIndex] == false) {
+        this.count++;
+        this.flag[rowIndex][colIndex] = true;
+      } else {}
+      var rowSize = 22; // 行数
+      var screenWidth = uni.getSystemInfoSync().windowWidth;
+      var screenHeight = uni.getSystemInfoSync().windowHeight;
+      this.cellHeight = this.cellWidth; // 格子高度
+      var colSize = screenHeight / this.cellHeight;
+      // console.log(this.count);
+      // if(this.count == 1) {
+      if (this.count == this.row * this.col) {
+        // console.log("满了");
+        this.xuanFu = true;
+      }
     },
     updateNavigationBarColor: function updateNavigationBarColor(color) {
       uni.setNavigationBarColor({
