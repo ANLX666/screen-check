@@ -165,6 +165,7 @@ exports.default = void 0;
 //
 //
 //
+//
 var _default = {
   name: "lx-screen-check",
   data: function data() {
@@ -253,8 +254,9 @@ var _default = {
         backgroundColor: color // Background color of the navigation bar, set to the selected cell color
       });
     },
-    //我已确认 
-    confirmCheck: function confirmCheck() {
+    // 点击"我已确认"按钮的事件处理函数
+    confirmCheck: function confirmCheck(e) {
+      e.preventDefault();
       this.initShow = false;
     }
   }

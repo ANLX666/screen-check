@@ -12,11 +12,12 @@
 	</view>
 	<view v-if="initShow" class="overlay">
 		<view class="overlay-chuMo">
-			<view class="">
+			<view class="overlay-chuMo-text">
 				屏幕触摸是否灵敏
 			</view>
-			<view style="font-size: 10px;">如折叠屏、曲面屏等机型，小程序界面无法完全覆盖全屏，清人工进行全屏的显示判断后再进行结果选择。</view>
-			<button class="overlay-chuMo-btn" @click="confirmCheck()">我已确认，开始检测</button>
+			<view class="overlay-chuMo-content">
+				如折叠屏、曲面屏等机型，小程序界面无法完全覆盖全屏，清人工进行全屏的显示判断后再进行结果选择。</view>
+			<button class="overlay-chuMo-btn" @click="confirmCheck($event)" >我已确认，开始检测</button>
 		</view>
 	</view>
   </view>	
@@ -109,10 +110,11 @@ export default {
         backgroundColor: color, // Background color of the navigation bar, set to the selected cell color
       })
     },
-	//我已确认 
-	confirmCheck() { 
-	  this.initShow = false 
-	}
+	// 点击"我已确认"按钮的事件处理函数
+    confirmCheck(e) {
+	  e.preventDefault();
+	  this.initShow = false;
+    }
   }
 }
 </script>
@@ -153,14 +155,21 @@ export default {
 	  border-radius: 10px;
 	  padding-top: 40rpx;
 	  opacity: 0.5;
-	  text-align: center;
+	  &-text{ 
+		  text-align: center;
+	  }
 	  &-btn { 
-		  margin-top: 55rpx;
+		  margin-top: 20rpx;
 		  border-radius: 10px;
 		  text-align: center; 
 		  align-items: center; 
 		  width: 80%; 
 		  font-size: 12px;
+	   }
+	   &-content{
+		   font-size: 12px;
+		   width: 95%;
+		   margin-left: 23rpx; 
 	   }
   }
 }

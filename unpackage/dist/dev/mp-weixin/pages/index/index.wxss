@@ -59,15 +59,22 @@
   border-radius: 10px;
   padding-top: 40rpx;
   opacity: 0.5;
+}
+.overlay-chuMo-text.data-v-57280228 {
   text-align: center;
 }
 .overlay-chuMo-btn.data-v-57280228 {
-  margin-top: 55rpx;
+  margin-top: 20rpx;
   border-radius: 10px;
   text-align: center;
   align-items: center;
   width: 80%;
   font-size: 12px;
+}
+.overlay-chuMo-content.data-v-57280228 {
+  font-size: 12px;
+  width: 95%;
+  margin-left: 23rpx;
 }
 .overlay text.data-v-57280228 {
   color: white;
