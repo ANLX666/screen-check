@@ -10,6 +10,15 @@
 	<view v-if="xuanFu" class="overlay">
 		<view style="height: 120px; width: 240px; text-align: center; background-color: aqua;  align-items: center;">请选择是否有异常</view>
 	</view>
+	<view v-if="initShow" class="overlay">
+		<view class="overlay-chuMo">
+			<view class="">
+				屏幕触摸是否灵敏
+			</view>
+			<view style="font-size: 10px;">如折叠屏、曲面屏等机型，小程序界面无法完全覆盖全屏，清人工进行全屏的显示判断后再进行结果选择。</view>
+			<button class="overlay-chuMo-btn" @click="confirmCheck()">我已确认，开始检测</button>
+		</view>
+	</view>
   </view>	
 </template>
 
@@ -26,6 +35,7 @@ export default {
 	  xuanFu : false ,
 	  row :0 , 
 	  col : 0 ,
+	  initShow:true ,
     }
   },
   mounted() {
@@ -98,12 +108,16 @@ export default {
         frontColor: '#ffffff', // Text color of the navigation bar, set to white
         backgroundColor: color, // Background color of the navigation bar, set to the selected cell color
       })
-    }
+    },
+	//我已确认 
+	confirmCheck() { 
+	  this.initShow = false 
+	}
   }
 }
 </script>
 
-<style>
+<style  lang="scss" scoped>
 .container {
   width: 100%;
   height: 100vh;
@@ -127,8 +141,28 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.5); /* Add a semi-transparent background to make it more visible */
+  background-color: #0AA2E9; /* Add a semi-transparent background to make it more visible */
   z-index: 5;
+  &-chuMo{ 
+	  height: 240rpx;
+	  width: 551rpx;
+	  ext-align: center;
+	  background-color: aqua;
+	  align-items: center;
+	  background-color: #FFFFFF;
+	  border-radius: 10px;
+	  padding-top: 40rpx;
+	  opacity: 0.5;
+	  text-align: center;
+	  &-btn { 
+		  margin-top: 55rpx;
+		  border-radius: 10px;
+		  text-align: center; 
+		  align-items: center; 
+		  width: 80%; 
+		  font-size: 12px;
+	   }
+  }
 }
 
 .overlay text {
