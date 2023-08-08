@@ -167,7 +167,7 @@ exports.default = void 0;
 //
 //
 var _default = {
-  name: "lx-screen-check",
+  name: "lxScreenCheck",
   data: function data() {
     return {
       grid: [],
@@ -228,7 +228,7 @@ var _default = {
         clientY = touch.clientY;
       var rowIndex = Math.floor(clientY / this.cellHeight);
       var colIndex = Math.floor(clientX / this.cellWidth);
-      this.grid[rowIndex][colIndex].color = 'rgb(130,161,250)';
+      this.grid[rowIndex][colIndex].color = 'rgb(36,143,227)';
       // Update the navigation bar color
       this.updateNavigationBarColor(this.grid[rowIndex][colIndex].color);
       if (this.flag[rowIndex][colIndex] == false) {

@@ -25,7 +25,7 @@
 
 <script>
 export default {
-  name: "lx-screen-check",
+  name: "lxScreenCheck",
   data() {
     return {
       grid: [],  // 格子图
@@ -83,7 +83,7 @@ export default {
       const rowIndex = Math.floor(clientY / this.cellHeight)
       const colIndex = Math.floor(clientX / this.cellWidth)
 	  
-      this.grid[rowIndex][colIndex].color = 'rgb(130,161,250)'
+      this.grid[rowIndex][colIndex].color = 'rgb(36,143,227)'
       // Update the navigation bar color
       this.updateNavigationBarColor(this.grid[rowIndex][colIndex].color)
 	  if(this.flag[rowIndex][colIndex] == false) {
@@ -151,10 +151,10 @@ export default {
 	  ext-align: center;
 	  background-color: aqua;
 	  align-items: center;
-	  background-color: #FFFFFF;
+	  background-color: white;
 	  border-radius: 10px;
 	  padding-top: 40rpx;
-	  opacity: 0.5;
+	  opacity: 0.7;
 	  &-text{ 
 		  text-align: center;
 	  }
@@ -170,6 +170,7 @@ export default {
 		   font-size: 12px;
 		   width: 95%;
 		   margin-left: 23rpx; 
+		   line-height: 35rpx;
 	   }
   }
 }
