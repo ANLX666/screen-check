@@ -166,6 +166,8 @@ exports.default = void 0;
 //
 //
 //
+//
+//
 var _default = {
   name: "lxScreenCheck",
   data: function data() {
@@ -228,7 +230,7 @@ var _default = {
         clientY = touch.clientY;
       var rowIndex = Math.floor(clientY / this.cellHeight);
       var colIndex = Math.floor(clientX / this.cellWidth);
-      this.grid[rowIndex][colIndex].color = 'rgb(36,143,227)';
+      this.grid[rowIndex][colIndex].color = '#0AA2E9';
       // Update the navigation bar color
       this.updateNavigationBarColor(this.grid[rowIndex][colIndex].color);
       if (this.flag[rowIndex][colIndex] == false) {
@@ -249,7 +251,7 @@ var _default = {
     },
     updateNavigationBarColor: function updateNavigationBarColor(color) {
       uni.setNavigationBarColor({
-        frontColor: '#ffffff',
+        frontColor: '#FFFFFF',
         // Text color of the navigation bar, set to white
         backgroundColor: color // Background color of the navigation bar, set to the selected cell color
       });

@@ -11,13 +11,15 @@
 		<view style="height: 120px; width: 240px; text-align: center; background-color: aqua;  align-items: center;">请选择是否有异常</view>
 	</view>
 	<view v-if="initShow" class="overlay">
-		<view class="overlay-chuMo">
-			<view class="overlay-chuMo-text">
-				屏幕触摸是否灵敏
+		<view class="overlay-container">
+			<view class="overlay-chuMo">
+				<view class="overlay-chuMo-text">
+					屏幕触摸是否灵敏
+				</view>
+				<view class="overlay-chuMo-content">
+					如折叠屏、曲面屏等机型，小程序界面无法完全覆盖全屏，清人工进行全屏的显示判断后再进行结果选择。</view>
+				<button class="overlay-chuMo-btn" @click="confirmCheck($event)" >我已确认，开始检测</button>
 			</view>
-			<view class="overlay-chuMo-content">
-				如折叠屏、曲面屏等机型，小程序界面无法完全覆盖全屏，清人工进行全屏的显示判断后再进行结果选择。</view>
-			<button class="overlay-chuMo-btn" @click="confirmCheck($event)" >我已确认，开始检测</button>
 		</view>
 	</view>
   </view>	
@@ -83,7 +85,7 @@ export default {
       const rowIndex = Math.floor(clientY / this.cellHeight)
       const colIndex = Math.floor(clientX / this.cellWidth)
 	  
-      this.grid[rowIndex][colIndex].color = 'rgb(36,143,227)'
+      this.grid[rowIndex][colIndex].color = '#0AA2E9'
       // Update the navigation bar color
       this.updateNavigationBarColor(this.grid[rowIndex][colIndex].color)
 	  if(this.flag[rowIndex][colIndex] == false) {
@@ -106,7 +108,7 @@ export default {
     },
     updateNavigationBarColor(color) {
       uni.setNavigationBarColor({
-        frontColor: '#ffffff', // Text color of the navigation bar, set to white
+        frontColor: '#FFFFFF', // Text color of the navigation bar, set to white
         backgroundColor: color, // Background color of the navigation bar, set to the selected cell color
       })
     },
@@ -141,12 +143,14 @@ export default {
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: #0AA2E9; /* Add a semi-transparent background to make it more visible */
   z-index: 5;
+  &-container{
+	  margin: 0 auto;
+  }
   &-chuMo{ 
-	  height: 240rpx;
+	  margin: 244rpx auto;
+	  height: 320rpx;
 	  width: 551rpx;
 	  ext-align: center;
 	  background-color: aqua;
@@ -154,23 +158,35 @@ export default {
 	  background-color: white;
 	  border-radius: 10px;
 	  padding-top: 40rpx;
-	  opacity: 0.7;
+	  background-color: rgba(255, 255, 255, 0.5); 
 	  &-text{ 
+		  margin-top: 12.0rpx;
 		  text-align: center;
+		  color: #333333;
+		  font-weight: Bold;
 	  }
 	  &-btn { 
-		  margin-top: 20rpx;
-		  border-radius: 10px;
+		  margin-top: 27rpx;
+		  border-radius: 30rpx;
 		  text-align: center; 
 		  align-items: center; 
-		  width: 80%; 
-		  font-size: 12px;
+		  width: 500rpx ; 
+		  height: 60rpx;
+		  font-size: 14px;
+		  background-color: #0AA2E9;
+		  color: #FFFFFF;
+		  opacity: 1;
+		  mix-blend-mode: normal;  /* 修改为normal */
 	   }
 	   &-content{
+		   margin-top: 38rpx;
 		   font-size: 12px;
-		   width: 95%;
-		   margin-left: 23rpx; 
+		   width: 504rpx;
+		   height: 107.0rpx;
+		   margin-left: 25rpx; 
 		   line-height: 35rpx;
+		   text-align: left;
+		   font-weight: Regular;
 	   }
   }
 }
