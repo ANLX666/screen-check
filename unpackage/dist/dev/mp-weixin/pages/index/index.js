@@ -168,6 +168,19 @@ exports.default = void 0;
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default = {
   name: "lxScreenCheck",
   data: function data() {
@@ -183,25 +196,31 @@ var _default = {
       xuanFu: false,
       row: 0,
       col: 0,
-      initShow: true
+      initShow: true,
+      screenWidth: 0,
+      screenHeight: 0
     };
   },
   mounted: function mounted() {
+    this.getSystemInfo();
     this.initGrid();
   },
   methods: {
+    getSystemInfo: function getSystemInfo() {
+      var systemInfo = uni.getSystemInfoSync();
+      this.screenWidth = systemInfo.windowWidth;
+      this.screenHeight = systemInfo.windowHeight;
+    },
     // 初始化格子图
     initGrid: function initGrid() {
-      // const rowSize = 22 // 行数
       var colSize = 12; // 列数
-      var screenWidth = uni.getSystemInfoSync().windowWidth;
-      var screenHeight = uni.getSystemInfoSync().windowHeight;
-      this.cellWidth = screenWidth / colSize; // 格子宽度
+      // const rowSize = 22 // 行数
+      this.cellWidth = this.screenWidth / colSize; // 格子宽度
       this.cellHeight = this.cellWidth; // 格子高度\
       // console.log(parseInt(screenWidth) /parseInt(colSize));
       // console.log( parseInt(parseInt(screenHeight) / parseInt(this.cellHeight)) ) ;
       // const colSize =  parseInt(screenHeight / this.cellHeight);
-      var rowSize = parseInt(screenHeight / this.cellHeight) + 1;
+      var rowSize = parseInt(this.screenHeight / this.cellHeight) + 1;
       this.row = rowSize;
       this.col = colSize;
       for (var i = 0; i < rowSize; i++) {
@@ -238,15 +257,14 @@ var _default = {
         this.flag[rowIndex][colIndex] = true;
       } else {}
       var rowSize = 22; // 行数
-      var screenWidth = uni.getSystemInfoSync().windowWidth;
-      var screenHeight = uni.getSystemInfoSync().windowHeight;
       this.cellHeight = this.cellWidth; // 格子高度
-      var colSize = screenHeight / this.cellHeight;
+      var colSize = this.screenHeight / this.cellHeight;
       // console.log(this.count);
       // if(this.count == 1) {
       if (this.count == this.row * this.col) {
-        // console.log("满了");
-        this.xuanFu = true;
+        console.log("满了");
+        this.$emit('setInfo', 1);
+        // this.$router.push('/pages/index/index')
       }
     },
     updateNavigationBarColor: function updateNavigationBarColor(color) {
@@ -260,6 +278,11 @@ var _default = {
     confirmCheck: function confirmCheck(e) {
       e.preventDefault();
       this.initShow = false;
+    },
+    // 返回
+    goback: function goback() {
+      console.log('goback');
+      this.$emit('setInfo', 0);
     }
   }
 };

@@ -30,6 +30,12 @@
   overflow: hidden;
   position: relative;
 }
+.goback.data-v-57280228 {
+  display: flex;
+  position: absolute;
+  top: 100rpx;
+  left: 50rpx;
+}
 .row.data-v-57280228 {
   display: flex;
 }
@@ -52,6 +58,67 @@
 }
 .overlay-chuMo.data-v-57280228 {
   margin: 244rpx auto;
+  height: 350rpx;
+  width: 587rpx;
+  ext-align: center;
+  background-color: aqua;
+  align-items: center;
+  background-color: white;
+  border-radius: 10px;
+  padding-top: 43rpx;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+.overlay-chuMo-text.data-v-57280228 {
+  text-align: center;
+  color: #333333;
+  font-weight: 700;
+  font-size: 15px;
+  opacity: 1;
+}
+.overlay-chuMo-btn.data-v-57280228 {
+  margin-top: 27rpx;
+  border-radius: 30rpx;
+  width: 500rpx;
+  height: 60rpx;
+  font-size: 14px;
+  background-color: #0AA2E9;
+  color: #FFFFFF;
+  opacity: 1;
+  border: none;
+  mix-blend-mode: normal;
+  /* 修改为normal */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.overlay-chuMo-btn.data-v-57280228::after {
+  border: none;
+}
+.overlay-chuMo-content.data-v-57280228 {
+  margin-top: 45rpx;
+  font-size: 12px;
+  width: 504rpx;
+  height: 107.0rpx;
+  margin-left: 34rpx;
+  line-height: 40rpx;
+  text-align: left;
+  font-weight: 400;
+}
+.overlay2.data-v-57280228 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  background: rgba(255, 255, 255, 0);
+  z-index: 5;
+}
+.overlay2-container.data-v-57280228 {
+  margin: 0 auto;
+}
+.overlay2-chuMo.data-v-57280228 {
+  margin: 407rpx auto;
   height: 320rpx;
   width: 551rpx;
   ext-align: center;
@@ -60,40 +127,52 @@
   background-color: white;
   border-radius: 10px;
   padding-top: 40rpx;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0);
 }
-.overlay-chuMo-text.data-v-57280228 {
+.overlay2-chuMo-text.data-v-57280228 {
   margin-top: 12.0rpx;
   text-align: center;
   color: #333333;
   font-weight: Bold;
+  font-size: 15px;
 }
-.overlay-chuMo-btn.data-v-57280228 {
-  margin-top: 27rpx;
-  border-radius: 30rpx;
+.overlay2-chuMo-btn.data-v-57280228 {
+  border-radius: 15px;
   text-align: center;
   align-items: center;
-  width: 500rpx;
-  height: 60rpx;
+  justify-content: center;
   font-size: 14px;
   background-color: #0AA2E9;
   color: #FFFFFF;
   opacity: 1;
+  border: none;
   mix-blend-mode: normal;
   /* 修改为normal */
 }
-.overlay-chuMo-content.data-v-57280228 {
+.overlay2-chuMo-content.data-v-57280228 {
   margin-top: 38rpx;
   font-size: 12px;
   width: 504rpx;
   height: 107.0rpx;
   margin-left: 25rpx;
+  font-weight: Regular;
   line-height: 35rpx;
-  text-align: left;
+  text-align: center;
   font-weight: Regular;
 }
 .overlay text.data-v-57280228 {
   color: white;
+  font-size: 24px;
+  font-weight: bold;
+}
+.overlay-xuanFu.data-v-57280228 {
+  width: 400px;
+  height: 200px;
+  background-color: #0AA2E9;
+  z-index: 100;
+}
+.overlay-xuanFu text.data-v-57280228 {
+  color: #333333;
   font-size: 24px;
   font-weight: bold;
 }
